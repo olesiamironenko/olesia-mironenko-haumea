@@ -4,15 +4,73 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: xx-large;
     text-align: center;
+    margin-top: 0;
+    padding-top: 0;
 }
 
-header h1 {
+header {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    background-color: lightcyan;
+}
+
+.nav-item {
+    background-color: blueviolet;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10%;
+    border-style: solid;
+    flex: 1;
+}
+
+.nav {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav a:link {
+    color:lightcyan;
+}
+
+.nav a:hover {
+    opacity: 40%;
+}
+
+.nav a:visited {
+    color: rgb(239, 178, 248)
+}
+
+main {
+    margin-top: 150px;
+}
+
+.indie-flower-regular {
     font-family: "Indie Flower", cursive;
     font-weight: 400;
     font-style: normal;
+    margin: 0;
+    padding: 0;
 }
 
-header img {
+hr {
+    width: 100%;
+}
+
+#Portrait {
     border-radius: 50%;
 }
 
@@ -27,27 +85,61 @@ li {
     list-style: none;
 }
 
-.grid {
-    display: grid;
-    margin: 20px 5%;
-   
-}
-
 h2 {
     font-size: 150%;
     font-weight: bold;
     color: rgb(245, 90, 7);
-    margin-bottom: 0;
+    margin: 0;
+    padding: 0;
 }
 
-nav a:link {
-    color:rgb(245, 90, 7)
+.job {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
 }
 
-nav a:focus {
-    color: rgb(43, 52, 226);
+.job-xps {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
 }
 
-nav a:visited {
-    color: rgb(21, 151, 81);
+.job-title {
+    font-weight: bold;
 }
+
+.job-dates {
+    font-style: italic;
+}
+
+.job-description {
+    display: flex;
+    align-self: stretch;
+    color: rgb(200, 101, 236);
+}
+
+#Skills ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+#Skills li {
+    background-color: aliceblue;
+    padding: 5px;
+    border-radius: 10%;
+    flex: 1;
+}
+
+#Connect ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
