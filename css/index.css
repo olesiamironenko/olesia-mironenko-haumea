@@ -148,7 +148,7 @@ h2 {
 }
 
 footer {
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
 }
 
 /* Mobile */
@@ -282,7 +282,7 @@ footer {
         padding: 0.5rem;
     }
     
-    #Skills .list {
+    #Skills ul {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -290,7 +290,7 @@ footer {
         gap: 20px;
     }
 
-    #Skills .item {
+    #Skills li {
         background-color: aliceblue;
         padding: 5px;
         border-radius: 10%;
