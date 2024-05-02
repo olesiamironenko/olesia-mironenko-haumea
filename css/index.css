@@ -147,6 +147,10 @@ h2 {
     gap: 20px;
 }
 
+#messages:has(ul:empty) {
+    display: none;
+}
+
 footer {
     padding-bottom: 0.5rem;
 }
