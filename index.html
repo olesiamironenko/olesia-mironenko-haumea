@@ -7,7 +7,7 @@
     <meta name="description" content="Web Developer Porfolio">
     <meta name="keywords" content="HTML, CSS, JavaScript, SQL, Web development">
     <meta name="author" content="Olesia Mironenko">
-    <title>Document</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
@@ -104,6 +104,22 @@
         </section>
         
     <hr>
+
+<section>
+    <h2>Leave a Message</h2>
+    <form name="leave_message">
+        <label for="name">Name: </label><input type="text" id="name" name="usersName" required>
+        <label for="email">Email: </label><input type="email" id="email" name="usersEmail" required>
+        <label for="message">Message</label><textarea id="message" name="usersMessage" required></textarea>
+        <button type="submit" id="submitBtn">Submit</button>
+    </form>
+</section>
+
+<section id="messages">
+    <h2>Messages</h2>
+    <ul></ul>
+</section>
+
     </main>
 
     <script src="js/index.js">
