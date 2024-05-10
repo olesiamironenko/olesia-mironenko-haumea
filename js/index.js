@@ -134,3 +134,54 @@ messageForm.addEventListener("submit", event => {
         
 })
 
+const userName = "olesiamironenko";
+fetch(`https://api.github.com/users/${userName}/repos`, {
+    method: 'GET'
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Request failed');
+    }
+    return response.text(); 
+  })
+  .then(data => {
+    const repositories = JSON.parse(data);
+    console.log(repositories); 
+    console.log(repositories.length);
+
+    const projectSection = document.getElementById("Projects");
+    const projectList = document.createElement("ul");
+    projectSection.appendChild(projectList);
+    console.log(projectList);
+
+    // Q1: is array 'for of' iteration more effitient than iterationn by array index?
+    // Q2: is '.' notation more effitient than bracket notation?
+
+    // 'for of' loop solution for creating the list of projects;
+    // 
+    // for(let repository of repositories) {
+    //     const project = document.createElement("li");
+    //     project.innerHTML = repository["name"];
+    //     projectList.appendChild(project);
+    // }
+
+
+    // iterationn by array index solution for creating the list of projects;
+    // 
+    for(let i = 0; i < repositories.length; i++) {
+        const repoName = repositories[i]["name"];
+        console.log(repoName);
+        const project = document.createElement("li");
+        project.innerHTML = `${repoName}`;
+        projectList.appendChild(project);
+    }
+
+  })
+
+  .catch(error => {
+    console.error('An error occurred:', error);
+  });
+
+  
+
+  
