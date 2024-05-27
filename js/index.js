@@ -1,3 +1,5 @@
+// footer 
+
 document.body.appendChild(document.createElement("footer"));
 
 const today = new Date();
@@ -16,21 +18,32 @@ footer.append(copyright);
 
 copyright.innerHTML = "&copy; Olesia Mironenko " + thisYear;
 
+// end footer
+
+
+// skills
+
 let skills = ["HTML", "SQL", "CSS", "JavaScript", "Git"];
 let skillSection = document.getElementById("Skills");
 console.log(skillSection);
 console.log(skills);
 
+// skills container
 let skillList = skillSection.querySelector("ul");
 console.log(skillList);
 
-
+// list of skills
 for (const skill of skills) {
     const skillListItem = document.createElement("li");
     skillListItem.innerHTML = skill;
-    skillList.append(skillListItem);
+    console.log(skillListItem);
+    skillList.appendChild(skillListItem);
+
 }
 console.log(skillList);
+
+
+// message form
 
 let messageForm = document.querySelector('[name="leave_message"]');
 console.log(messageForm);
@@ -69,6 +82,8 @@ messageForm.addEventListener("submit", event => {
     editButton.type = "button";
     console.log(editButton);
 
+
+    // edit form
     editButton.addEventListener("click", () => {
         
         let newTextInput = document.createElement("input");
@@ -99,6 +114,7 @@ messageForm.addEventListener("submit", event => {
         newMessage.innerHTML = "";
         newMessage.appendChild(editForm);
 
+        // saving changes 
         editForm.addEventListener("submit", (event) => {
 
             event.preventDefault();
@@ -122,8 +138,9 @@ messageForm.addEventListener("submit", event => {
 
             newMessage.appendChild(editButton);
             newMessage.appendChild(removeButton);
-        })
 
+        })
+        // end of saving changes 
     })  
 
     newMessage.appendChild(editButton);
@@ -131,9 +148,12 @@ messageForm.addEventListener("submit", event => {
     messageList.appendChild(newMessage);
 
     messageForm.reset();
-        
+
+    
 })
 
+
+// fetch projects from github
 const userName = "olesiamironenko";
 fetch(`https://api.github.com/users/${userName}/repos`, {
     method: 'GET'
@@ -146,7 +166,8 @@ fetch(`https://api.github.com/users/${userName}/repos`, {
   })
   .then(data => {
     const repositories = JSON.parse(data);
-    console.log(repositories); 
+    console.log(JSON.parse(data));
+    console.log("repositories: " + repositories); 
     console.log(repositories.length);
 
     const projectSection = document.getElementById("Projects");
@@ -154,34 +175,124 @@ fetch(`https://api.github.com/users/${userName}/repos`, {
     projectSection.appendChild(projectList);
     console.log(projectList);
 
-    // Q1: is array 'for of' iteration more effitient than iterationn by array index?
-    // Q2: is '.' notation more effitient than bracket notation?
-
-    // 'for of' loop solution for creating the list of projects;
-    // 
-    // for(let repository of repositories) {
-    //     const project = document.createElement("li");
-    //     project.innerHTML = repository["name"];
-    //     projectList.appendChild(project);
-    // }
-
-
-    // iterationn by array index solution for creating the list of projects;
+    // iteration by array index solution for creating the list of projects;
     // 
     for(let i = 0; i < repositories.length; i++) {
+
+        // repo name:
+        // get repo names:
         const repoName = repositories[i]["name"];
         console.log(repoName);
+
+        // get repo links: 
+        const repoLink = repositories[i]["html_url"];
+        console.log(repoLink);
+
+        // show repo name:
         const project = document.createElement("li");
-        project.innerHTML = `${repoName}`;
+        project.innerHTML = repoName;
+
+        project.style.listStyle = "inside";
+        project.style.listStyleType = "disc";
+
         projectList.appendChild(project);
+
+        // date and time repo created
+        // get full date created
+        const dateCreated = repositories[i]["created_at"];
+        console.log(dateCreated);
+
+        const fullDate = new Date(dateCreated);
+        console.log("full date: " + fullDate);
+
+        // get month created
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        let monthName = months[fullDate.getMonth()];
+        console.log("month: " + monthName);
+
+        // get day created
+        const day = fullDate.getDate();
+        console.log("day: " + day);
+
+        // get year created
+        const year = fullDate.getFullYear();
+        console.log("year: " + year);
+
+        // get time created
+        let hours = fullDate.getHours();
+        console.log("hours: " + hours);
+
+        let minutes = fullDate.getMinutes();
+        console.log("minutes: " + minutes);
+
+         // check AM or PM
+        let timeFormat12H = hours >= 12 ? 'PM' : 'AM';
+ 
+        // convert hour in AM-PM format
+        hours = hours % 12;
+        // display "0" hours as "12"
+        hours = hours ? hours : 12;
+        //  display "1" to "9" minutes as "01" to "09"
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+ 
+        let fullTime12 = `${hours}:${minutes} ${timeFormat12H}`;
+        console.log("time: " + fullTime12);
+
+        // show date and time repo created
+        let dateCreatedMsg = document.createElement("p");
+        dateCreatedMsg.innerHTML = `Created on ${monthName} ${day}, ${year} at ${hours}`;
+
+        // get description
+        const description =  document.createElement("p");
+        description.innerHTML = repositories[i]["description"];
+        console.log(description.innerHTML);
+
+        // add more info to page,
+        // hide by default, show by clicking "Soow more" button
+        let moreInfo = document.createElement("div");
+
+        moreInfo.appendChild(dateCreatedMsg);
+        moreInfo.appendChild(description);
+       
+        moreInfo.style.display = "none";
+
+        const goToRepo = document.createElement("button");
+        goToRepo.innerHTML = "Go to repo";
+        goToRepo.addEventListener( "click", () => {
+          window.open(repoLink, "_blank");
+        })
+
+        // "show more" toggle button
+        const showMore = document.createElement("button");
+        showMore.innerHTML = "Show more";
+        showMore.addEventListener( "click", () => {
+          if (moreInfo.style.display === "block") {
+            moreInfo.style.display = "none";
+            showMore.innerHTML = "Show more"
+          } else {
+            moreInfo.style.display = "block";
+            showMore.innerHTML = "Hide";
+          }
+
+        })
+
+        const projectButtons = document.createElement("div");
+        project.appendChild(projectButtons);
+        projectButtons.appendChild(showMore);
+        projectButtons.appendChild(goToRepo);
+        project.appendChild(moreInfo);
+       
+        projectList.appendChild(project);
+
     }
 
   })
 
-  .catch(error => {
-    console.error('An error occurred:', error);
-  });
+  // .catch(error => {
+  //   console.error('An error occurred:', error);
+  // });
 
   
 
-  
+
