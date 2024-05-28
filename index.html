@@ -21,6 +21,7 @@
                 <a class="nav-button" href="#Skills">Skills</a>
                 <a class="nav-button" href="#Projects">Projects</a>
                 <a class="nav-button" href="#Connect">Connect</a>
+                <a class="nav-button" href="#LeaveMessage">Leave a Message</a>
             </div>
             <hr/>    
         </nav>
@@ -29,12 +30,17 @@
     <main>
     
         <h1 class="indie-flower-regular">Olesia Mironenko</h1>
-        <img id="Portrait" src="images/portrait.jpg" alt="Portrait" width="300px">
+        <!-- <img id="Portrait" src="images/portrait.jpg" alt="Portrait" width="300px"> -->
         <hr/>
 
         <section id="About">
             <h2>About</h2>
-            <p>I'm an aspiring web developer with a passion for creating engaging and user-friendly websites. I'm enthusiastic about learning new technologies and exploring the endless possibilities of web development.</p>
+            <div>
+                <img id="Portrait" src="images/portrait.jpg" alt="Portrait" width="250px">
+                
+                <p>I'm an aspiring web developer with a passion for creating engaging and user-friendly websites.</p>
+                <p>I'm enthusiastic about learning new technologies and exploring the endless possibilities of web development.</p>
+            </div>
         </section>
   
         <section id="Experience">
@@ -70,13 +76,6 @@
 
                 <ul></ul>
 
-            <!-- <div class="list">
-                <div class="item">HTML</div>
-                <div class="item">SQL</div>
-                <div class="item">CSS</div>
-                <div class="item">JavaScript</div>
-                <div class="item">Git</div>
-            </div> -->
         </section>
 
         <section id="Projects">
@@ -106,13 +105,23 @@
     <hr>
 
 <section>
-    <h2>Leave a Message</h2>
-    <form name="leave_message">
-        <label for="name">Name: </label><input type="text" id="name" name="usersName" required>
-        <label for="email">Email: </label><input type="email" id="email" name="usersEmail" required>
-        <label for="message">Message</label><textarea id="message" name="usersMessage" required></textarea>
-        <button type="submit" id="submitBtn">Submit</button>
-    </form>
+    <h2 id="LeaveMessage">Leave a Message</h2>
+    
+        <form name="leave_message">
+        <div class="container">
+            <label for="name">Name: </label><input type="text" id="name" name="usersName" required>
+        </div>
+        <div class="container">
+            <label for="email">Email: </label><input type="email" id="email" name="usersEmail" required>
+        </div>
+        <div class="container">
+            <label for="message">Message: </label><textarea id="message" name="usersMessage" required></textarea>
+        </div>
+        <div class="container">
+            <button type="submit" id="submitBtn">Submit</button>
+        </div>
+        </form>
+    
 </section>
 
 <section id="messages">
