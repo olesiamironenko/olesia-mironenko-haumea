@@ -53,11 +53,12 @@ nav {
 }
 /* end of navigation */
 
-/* position under the fixed to the top menu */
+/* position main content under the fixed navigation */
 main {
     margin-top: 120px;
 }
 
+/* element style */
 h1 {
     margin: 0;
     padding: 0;
@@ -82,7 +83,7 @@ section {
     padding: 20px;
     background-color: rgb(189, 245, 192);
     display: block;
-    /* positioning unnder the fixed to the top menu */
+    /* position under the fixed navigation */
     scroll-margin-top: 120px;
     max-width: 900px;
 }
@@ -248,9 +249,7 @@ button:hover {
     color: lightcyan;
     
 }
-
 /* end leave a message form styling */
-
 
 #messages:has(ul:empty) {
     display: none;
@@ -314,10 +313,6 @@ footer {
         width: 100%;
         margin: 1rem 0 0 0;
     }
-
-    /* .wrapper {
-        flex-direction: column;
-    } */
     
     #Skills ul {
         display: flex;
@@ -400,16 +395,6 @@ footer {
 
 @media only screen and (max-width:500px) {
 
-    body {
-        width: 100vw;
-        background-color: #f2ceae;
-        color: #2a2b2f;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-    }
-    
     header {
         margin: 0;
         padding: 0;
@@ -422,7 +407,7 @@ footer {
         top: 0;
         width: 100%;
         display: block;
-        background-color: #8a8fb9;
+        background-color: lightcyan;
     }
     
     .nav {
@@ -434,29 +419,10 @@ footer {
         gap: 20px;
     }
     
-    .nav-button {
-        flex: 1;
-        background-color: #2a2b2f;
-        padding: 0.5rem 1rem;
-        border-radius: 10%;
-        border-style: none;
-        text-decoration: none;
-        color: #bac2d9;
-    }
-    
-    .nav-button:hover, 
-    .nav-button:focus{
-        opacity: 40%;
-    }
-    
     main {
         margin-top: 14rem;
     }
-    
-    h1 {
-        margin: 0;
-        padding: 0;
-    }
+
 
     .indie-flower-regular {
         font-family: "Indie Flower", cursive;
@@ -464,23 +430,15 @@ footer {
         font-style: italic;
         margin: 0;
         padding: 0;
-        color: #7b5940;
+ 
     }
     
-    hr {
-        width: 100%;
-        margin: 1rem 0 0 0;
-    }
     
-    #Portrait {
-        border-radius: 50%;
-    }
     
     section {
         width: 80vw;
         margin: 20px auto;
         padding: 20px;
-        background-color: #bac2d9;
         display: block;
         scroll-margin-top: 14rem;
         border-radius: 5%;
@@ -488,10 +446,9 @@ footer {
     
     h2 {
         font-size: 150%;
-        font-weight: bold;
-        color: #7b5940;
+        font-weight: bold;      
         margin: 0.3rem auto 1rem auto;
-        padding: 0;
+        padding: 0; 
     }
     
     p {
