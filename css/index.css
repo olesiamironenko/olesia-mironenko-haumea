@@ -132,7 +132,13 @@ img {
 .job-description {
     display: flex;
     align-self: stretch;
-    
+}
+
+.job-description li {
+    text-align: left;
+    list-style: disc;
+    margin: 0;
+    padding: 0.5rem;
 }
 
 #Skills ul {
